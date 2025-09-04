@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT24A- Event Programming</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+
+    <input type="text"
+    id="textbox"
+    placeholder="type something here..."
+    oninput="updateDisplay()";>
+
+    <h1 id="display text">Your text goes here</h1>
+
+</body>
+<script>
+    function updateDisplay(){
+        var textbox = document.getElementById('textbox');
+        var display = document.getElementById('displaytext');
+        var display = document.getElementById('displaytext2');
+        const d = new Date();
+
+        //displayText.textContent = textbox.value;
+        //displayText.textContent = textbox.value;
+        console.log(textbox.value + d + ""+window.location.hostname);
+
+    }
+
+</script>    
+</html>
