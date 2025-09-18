@@ -42,7 +42,9 @@
         
     function addTaskItem(taskText){
         const li = document.createElement("li");
-        li.textContent = taskText;
+        const taskSpan = document.createElement("Span");
+        taskSpan.textContent = taskText;
+        li.appendChild(taskSpan);
 
         document.getElementById("taskList").appendChild(li);
         console.log("addTaskItem() called ->: ", + taskText, Date());
@@ -50,8 +52,6 @@
         const deleteBtn = createDeleteButton(li);
         li.appendChild(deleteBtn);
 
-        const taskSpan = document.createElement("Span");
-        taskSpan.textContent = taskText;
         const editBtn = createEditButton(li,taskSpan);
         li.appendChild(editBtn);
 
@@ -110,6 +110,7 @@
             taskSpan.classList.add("done");
 
             const buttons = li.querySelectorAll("buttons");
+            buttons.forEach(btn => btn.remove());
 
             console.log("Task completed", taskSpan.textContent, Date());
         }
