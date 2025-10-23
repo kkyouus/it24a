@@ -89,6 +89,8 @@
             L.control.layers(baseMaps,overlayMaps,{collapsed:false}).addTo(map);
             })
 
+             .catch(err => console.error('Error loading JSON', err));
+
 
     </script>
 </html>
