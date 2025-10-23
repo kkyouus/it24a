@@ -48,6 +48,30 @@
     openStreetMap.addTo(map);
     console.log("Base map tile layer loaded" + Date());
 
+      const markerGroups ={};
+
+    fetch(mapDataUrl)
+        .then(response => response.json())
+        .then(data => {
+            data.forEach( pin => {
+                const type = pin.locationType || "Other";
+
+                //Create Marker Group
+                if(!markerGroups[type]){
+                    markerGroups[type] = L.layerGroup();
+                }
+
+                //Marker and Popup
+                const marker = L.marker([pin.lat,pin.lng]).addTo(map);
+                const img = `<img src='${pin.img}' class="popup-image">`;
+                marker.bindPopup(`${img}<br><b> ${pin.title} </b><br> ${pin.description}<br> ${pin.locationType}`);
+                console.log(`${pin.name} Loaded ` +Date());
+
+                markerGroups[type].addLayer(marker);
+            });
+            //Add all groups to map initially
+            Object.values(markerGroups).forEach(group => group.addTo(map));
+
 
     </script>
 </html>
