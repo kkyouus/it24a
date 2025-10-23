@@ -42,6 +42,12 @@
     //Satellite
     const satellite = L.tileLayer(
         'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+         {attribution:'Tiles (c) Esri - Source: Esri, Maxar, Earthstar Geographics, GIS User Community'}
+    );
+
+    openStreetMap.addTo(map);
+    console.log("Base map tile layer loaded" + Date());
+
 
     </script>
 </html>
